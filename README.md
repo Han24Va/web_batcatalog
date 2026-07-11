@@ -43,17 +43,15 @@ python3 -m http.server 8080
 
 ## Estructura del proyecto
 
-web_batcatalog/
+```
+.
+web_batcatalog
 ├── index.html
-├── css/
-├── js/
-│   ├── services/      # fetch a la Batman API
-│   ├── components/    # tarjetas, detalle, filtros
-│   └── cache/         # capa de caché local
-├── assets/
-└── README.md
+├── README.md
+├── script.js
+└── style.css
+```
 
 ## Autores
-Autores
 - Nava Gustavo
 - Vazquez Anyelin
