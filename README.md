@@ -38,6 +38,7 @@ python3 -m http.server 8080
 Luego abre http://localhost:8080 (o el puerto que uses) en tu navegador.
 
 Estructura del proyecto
+
 app_batman/
 ├── index.html
 ├── css/
