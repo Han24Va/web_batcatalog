@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BatCatalog — Archivo GCPD</title>
+<meta name="description" content="Catálogo web que consume la Batman API: personajes, ubicaciones, conceptos e historias del universo de Batman (línea DC Rebirth).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 60%22><path fill=%22%23A61E2B%22 d=%22M50 8c-3 4-6 5-11 4 2 3 2 6 0 9-8-3-14-1-19 6 5-1 8 0 10 3-6 3-9 8-9 15 5-4 9-5 13-3-2 4-1 8 2 11 2-5 5-7 9-7-1 4 1 7 5 9 1-5 3-8 6-9-1 4 1 7 4 9 1-5 3-8 6-9 3 1 5 4 4 9 3-2 5-5 6-9 4 0 6 2 5 9 3-2 4-6 2-11 4-2 8-1 13 3 0-7-3-12-9-15 2-3 5-4 10-3-5-7-11-9-19-6 2-3 2-6 0-9-5 1-8 0-11-4z%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== Encabezado ===== -->
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#A61E2B" d="M50 8c-3 4-6 5-11 4 2 3 2 6 0 9-8-3-14-1-19 6 5-1 8 0 10 3-6 3-9 8-9 15 5-4 9-5 13-3-2 4-1 8 2 11 2-5 5-7 9-7-1 4 1 7 5 9 1-5 3-8 6-9-1 4 1 7 4 9 1-5 3-8 6-9 3 1 5 4 4 9 3-2 5-5 6-9 4 0 6 2 5 9 3-2 4-6 2-11 4-2 8-1 13 3 0-7-3-12-9-15 2-3 5-4 10-3-5-7-11-9-19-6 2-3 2-6 0-9-5 1-8 0-11-4z"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>BatCatalog</h1>
+        <p>GCPD — División de Archivos · Batman API v1</p>
+      </div>
+    </div>
+    <div class="header-stat">
+      <strong>211</strong>
+      expedientes disponibles
+    </div>
+  </header>
+
+  <!-- ===== Pestañas de categoría (RF-01..RF-05) ===== -->
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Categorías del catálogo"></nav>
+  <div class="tabs-underline"></div>
+
+  <!-- ===== Barra de herramientas: búsqueda, filtro, orden, tamaño de página ===== -->
+  <div class="toolbar">
+    <div class="field search">
+      <label for="search-input">Buscar por nombre</label>
+      <input type="search" id="search-input" placeholder="Ej. Batman, Gotham...">
+    </div>
+    <div class="field">
+      <label for="filter-field" id="filter-label">Filtro</label>
+      <input type="text" id="filter-field" placeholder="">
+    </div>
+    <div class="field">
+      <label for="sort-field">Ordenar por</label>
+      <select id="sort-field"></select>
+    </div>
+    <button type="button" class="sort-dir" id="sort-dir" data-dir="asc" aria-label="Cambiar dirección de orden"></button>
+    <div class="field">
+      <label for="page-size">Por página</label>
+      <select id="page-size">
+        <option value="8" selected>8</option>
+        <option value="12">12</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+    <span class="results-count" id="results-count"></span>
+  </div>
+
+  <!-- ===== Grilla de resultados ===== -->
+  <main class="grid" id="grid" aria-live="polite"></main>
+
+  <!-- ===== Paginación (RF-07) ===== -->
+  <nav class="pagination" id="pagination" aria-label="Paginación de resultados"></nav>
+
+  <footer class="site-footer">
+    <span>BatCatalog · Producto 2 — Automatización de Infraestructura Digital I · UTP</span>
+    <span>Fuente de datos: api.batmanapi.com/v1</span>
+  </footer>
+
+</div>
+
+<!-- ===== Panel de expediente (detalle, RF-06) ===== -->
+<div class="overlay" id="overlay"></div>
+<aside class="dossier" id="dossier" role="dialog" aria-modal="true" aria-label="Detalle de expediente">
+  <button class="dossier-close" id="dossier-close" aria-label="Cerrar expediente">✕</button>
+  <span class="dossier-close-label">Cerrar expediente</span>
+  <div id="dossier-content"></div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
