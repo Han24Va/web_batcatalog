@@ -27,7 +27,7 @@ Cómo correrlo localmente
 
 bash
 # Clona el repositorio
-git clone https://github.com/violetev100/app_batman.git
+git clone https://github.com/Han24Va/web_batcatalog.git
 cd app_batman
 
 # Levanta un servidor local (elige uno)
