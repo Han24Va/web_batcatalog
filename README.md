@@ -44,7 +44,6 @@ python3 -m http.server 8080
 ## Estructura del proyecto
 
 ```
-.
 web_batcatalog
 ├── index.html
 ├── README.md
