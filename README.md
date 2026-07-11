@@ -52,3 +52,8 @@ web_batcatalog/
 │   └── cache/         # capa de caché local
 ├── assets/
 └── README.md
+
+## Autores
+Autores
+- Nava Gustavo
+- Vazquez Anyelin
